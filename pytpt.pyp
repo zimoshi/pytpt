@@ -1,5 +1,5 @@
 __pyp_name__ = "pytpt"
-__pyp_ver__ = "1.2.0"
+__pyp_ver__ = "1.2.2"
 __pyp_deps__ = ""
 __pyp_cli__ = True
 
@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     BANNER = r'''
  _____ ____ _____ 
-|_   _|  _ \\_   _|
+|_   _|  _ \_   _|
   | | | |_) || |  
   | | |  __/ | |  
   |_| |_|    |_|  
@@ -27,18 +27,25 @@ Deterministic • AST-safe • Programmable Templates
         print(BANNER)
         sys.exit(0)
 
-    if len(sys.argv) != 3:
-        print(BANNER)
-        print("Usage: pytpt <template-file> <context.json>")
+    hide_banner = "--hide-banner" in sys.argv
+    argv = [a for a in sys.argv[1:] if a != "--hide-banner"]
+
+    if len(argv) != 2:
+        if not hide_banner:
+            print(BANNER)
+        print("Usage: pytpt [--hide-banner] <template-file> <context.json>")
         sys.exit(1)
 
-    with open(sys.argv[1], "r", encoding="utf-8") as f:
+    if not hide_banner:
+        print(BANNER)
+
+    with open(argv[0], "r", encoding="utf-8") as f:
         template = f.read()
 
-    with open(sys.argv[2], "r", encoding="utf-8") as f:
+    with open(argv[1], "r", encoding="utf-8") as f:
         ctx = json.load(f)
 
-    print(BANNER + Renderer(template).render(ctx))
+    print(Renderer(template).render(ctx))
 """,
 
 "__init__.py": """
