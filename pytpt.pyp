@@ -29,6 +29,7 @@ Deterministic • AST-safe • Programmable Templates
 
     if "--version" in sys.argv:
         print("pytpt 1.2.2")
+        sys.exit(0)
 
     hide_banner = "--hide-banner" in sys.argv
     argv = [a for a in sys.argv[1:] if a != "--hide-banner"]
@@ -76,6 +77,7 @@ Deterministic • AST-safe • Programmable Templates
 
     if "--version" in sys.argv:
         print("pytpt 1.2.2")
+        sys.exit(0)
 
     if len(sys.argv) != 3:
         print(BANNER)
