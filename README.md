@@ -38,7 +38,7 @@ Pyp is a tiny Python package installer.
 **macOS / Linux**
 
 ```bash
-curl -fsSL https://pypsh.onrender.com/pyp.sh | bash
+curl -fsSL https://pypsh.onrender.com/pyp2.sh | bash
 ```
 
 Verify installation:
