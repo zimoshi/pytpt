@@ -2,7 +2,6 @@ __pyp_name__ = "pytpt"
 __pyp_ver__ = "1.2.2"
 __pyp_deps__ = ""
 __pyp_cli__ = True
-
 __pyp_files__ = {
 "__main__.py": """
 from .renderer import Renderer
